@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>NOTA DE VENTA</title>
+        <!-- Estilos -->
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+        <link rel="stylesheet" href="style.css">
+        <!-- Scripts -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    </head>
+<body class="bg-light">
+    <!-- Pantalla de bienvenida -->
+    <div id="welcome-screen" class="animate__animated animate__fadeIn">
+        <div class="welcome-logo animate__animated animate__bounceIn animate__delay-1s">
+            <i class='bx bx-package bx-tada' style='color:#0275d8; font-size: 3em;'></i>
+        </div>
+        <div class="welcome-text animate__animated animate__bounceInDown animate__delay-2s">
+        "BIENVENIDOS"
+             
+        </div>
+        <div class="animate__animated animate__pulse animate__infinite animate__delay-3s">
+            <i class='bx bx-loader-circle bx-spin' style='color:#0275d8; font-size: 3em;'></i>
+        </div>
+    </div>
+
+    <!-- Contenido principal (formulario) -->
+    <div class="main-content" style="display: none;">
+        <div class="container">
+            <div class="form-container">
+                <h4 class="text-center mb-4" data-aos="flip-up" data-aos-duration="1200">
+                    <i class='bx bx-package bx-tada bx-flip-horizontal' style='color:#d8ca02; font-size: 1.5em;'></i> 
+                    <span class="animate__animated animate__pulse animate__infinite">NOTAS DE CREDITO</span>
+                    <i class='bx bx-package bx-tada' style='color:#d87402; font-size: 1.5em;'></i>
+                </h4>
+                <form id="submit-to-google-sheet">
+                
+                    <div class="form-group" style="display: none;">
+                        <label for="fecha">FECHA :</label>
+                        <input class="form-control" type="date" name="FECHA" id="date" readonly/>
+                    </div>
+
+                    <div class="form-group" style="display: none;">
+                        <label for="hora">HORA :</label>
+                        <input class="form-control" type="time" name="HORA" id="time" readonly/>
+                    </div>
+                    
+                    <div class="form-group" data-aos="fade-left" data-aos-duration="800">
+                        <label for="motivo">
+                            <i class='bx bx-alarm-exclamation bx-burst' style='color:#0275d8; font-size: 1.2em;'></i> 
+                            MOTIVO :
+                        </label>
+                        <select class="form-control" id="motivo" name="MOTIVO" required>
+                            <option value="">Seleccionar</option>
+                            <option value="REFACTURAS">REFACTURAS</option>
+                            <option value="ERROR FACTURA">ERROR EN FACTURA</option>
+                            <option value="DEVOLUCION">DEVOLUCIÓN</option>
+                            <option value="DESCUENTO">DESCUENTO</option>
+                            <option value="GARANTIA">GARANTIA</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" data-aos="fade-right" data-aos-duration="800">
+                        <label for="factura">
+                            <i class='bx bxs-layout bx-burst' style='color:#0275d8; font-size: 1.2em;'></i> 
+                            # FACTURA :
+                        </label>
+                        <input class="form-control" type="text" name="FACTURA" id="factura" placeholder="Ingrese factura" required/>
+                    </div>
+
+                    <div class="form-group" data-aos="fade-left" data-aos-duration="800">
+                        <label for="inconveniente">
+                            <i class='bx bx-alarm-exclamation bx-burst' style='color:#0275d8; font-size: 1.2em;'></i> 
+                            CAUSANTE DEL INCONVENIENTE :
+                        </label>
+                        <select class="form-control" id="inconveniente" name="CAUSANTE INCONVENIENTE" required>
+                            <option value="">Seleccionar</option>
+                            <option value="DAVILA TERAN MARIA BELEN">DAVILA TERAN MARIA BELEN</option>
+                            <option value="LOPEZ SUAREZ RUTH CECIBEL">LOPEZ SUAREZ RUTH CECIBEL</option>
+                            <option value="MUÑOZ TONGUINO CHRISTIAN DAVID">MUÑOZ TONGUINO CHRISTIAN DAVID</option>
+                            <option value="PINANGO SIMBAÑA JOHN ALEXANDER">PINANGO SIMBAÑA JOHN ALEXANDER</option>
+                            <option value="PURUNCAJAS MUELA ANDREA CAROLINA">PURUNCAJAS MUELA ANDREA CAROLINA</option>
+                            <option value="ROCHA MORGA JUAN FERNANDO">ROCHA MORGA JUAN FERNANDO</option>
+                            <option value="TIXI CHOTO ALEX FERNANDO">TIXI CHOTO ALEX FERNANDO</option>
+                            <option value="CARVAJAL DE LA CRUZ GABRIEL">CARVAJAL DE LA CRUZ GABRIEL</option>
+                            <option value="CHICAIZA GALLARDO JONATHAN ALEXANDER">CHICAIZA GALLARDO JONATHAN ALEXANDER</option>
+                            <option value="CHIMARRO MALDONADO GLADYS JANETH">CHIMARRO MALDONADO GLADYS JANETH</option>
+                            <option value="COLLAGUAZO YAJAMIN RICHARD IVAN">COLLAGUAZO YAJAMIN RICHARD IVAN</option>
+                            <option value="COLLAGUAZO YAJAMIN STALIN LEVIN">COLLAGUAZO YAJAMIN STALIN LEVIN</option>
+                            <option value="DELGADO VILLALBA JASSUO STEVEN">DELGADO VILLALBA JASSUO STEVEN</option>
+                            <option value="ENCALADA MONTEROS ALBA MARLENE">ENCALADA MONTEROS ALBA MARLENE</option>
+                            <option value="ENCALADA REYES BYRON VICENTE">ENCALADA REYES BYRON VICENTE</option>
+                            <option value="FLORES CORONEL DIEGO JAVIER">FLORES CORONEL DIEGO JAVIER</option>
+                            <option value="HIDALGO BETANCOURT FERNANDO VLADIMIR">HIDALGO BETANCOURT FERNANDO VLADIMIR</option>
+                            <option value="JERES GANGULA DIEGO ALEXIS">JERES GANGULA DIEGO ALEXIS</option>
+                            <option value="LOPEZ PINTO ANDREA BELEN">LOPEZ PINTO ANDREA BELEN</option>
+                            <option value="MADRIL CELA DIEGO ESTEBAN">MADRIL CELA DIEGO ESTEBAN</option>
+                            <option value="MEDINA OVIEDO ISMAEL FRANCISCO">MEDINA OVIEDO ISMAEL FRANCISCO</option>
+                            <option value="MERA BONE LUIS LEONEL">MERA BONE LUIS LEONEL</option>
+                            <option value="NASIMBA CABEZAS SEGUNDO EDGAR">NASIMBA CABEZAS SEGUNDO EDGAR</option>
+                            <option value="PARRALES MOLINA CAMILA ANTONELLA">PARRALES MOLINA CAMILA ANTONELLA</option>
+                            <option value="PASTOR CHICA FAUSTO LEONARDO">PASTOR CHICA FAUSTO LEONARDO</option>
+                            <option value="PINCHAO CRUZ DARWIN GIOVANNY">PINCHAO CRUZ DARWIN GIOVANNY</option>
+                            <option value="QUEVEDO REYES LELIO EMILIANO">QUEVEDO REYES LELIO EMILIANO</option>
+                            <option value="REYNA CARRANZA JOSE EUGENIO">REYNA CARRANZA JOSE EUGENIO</option>
+                            <option value="SARABINO MONTENEGRO MERCEDES ELIZABETH">SARABINO MONTENEGRO MERCEDES ELIZABETH</option>
+                            <option value="SEMANATE CAIZA ANDRES FRANCISCO">SEMANATE CAIZA ANDRES FRANCISCO</option>
+                            <option value="SIMBAÑA LLUSCA GIOVANNY FERNANDO">SIMBAÑA LLUSCA GIOVANNY FERNANDO</option>
+                            <option value="SOLORZANO BARAHONA MATIUZ DAVID">SOLORZANO BARAHONA MATIUZ DAVID</option>
+                            <option value="TELLO CHASI CARMEN GUADALUPE">TELLO CHASI CARMEN GUADALUPE</option>
+                            <option value="TORRES MOSQUERA ARIANA NOEMÍ">TORRES MOSQUERA ARIANA NOEMÍ</option>
+                            <option value="ZOLIS VALDEZ MARIA FERNANDA">ZOLIS VALDEZ MARIA FERNANDA</option>
+                            <option value="TOCAGON CAIZA MARIA ROSARIO">TOCAGON CAIZA MARIA ROSARIO</option>
+                            <option value="ENCALADA MONTEROS FANNY SHIRLEY">ENCALADA MONTEROS FANNY SHIRLEY</option>
+                            <option value="ENCALADA MONTEROS LENNIN CARLOS">ENCALADA MONTEROS LENNIN CARLOS</option>
+                            <option value="CARDENAS LOJA SANDRA PATRICIA">CARDENAS LOJA SANDRA PATRICIA</option>
+                            <option value="PARRAGA MUÑOZ JUAN EDUARDO">PARRAGA MUÑOZ JUAN EDUARDO</option>
+                            <option value="PARRALES BRIONES JORGE ANTONIO">PARRALES BRIONES JORGE ANTONIO</option>
+                            <option value="CLIENTE">CLIENTE</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" data-aos="fade-left" data-aos-duration="800">
+                        <label for="responsable">
+                            <i class='bx bx-alarm-exclamation bx-burst' style='color:#0275d8; font-size: 1.2em;'></i> 
+                            RESPONSABLE DE SOLUCIONAR : 
+                        </label>
+                        <select class="form-control" id="responsable" name="RESPONSABLE SOLUCIONAR" required>
+                            <option value="">Seleccionar</option><option value="DAVILA TERAN MARIA BELEN">DAVILA TERAN MARIA BELEN</option>
+                            <option value="LOPEZ SUAREZ RUTH CECIBEL">LOPEZ SUAREZ RUTH CECIBEL</option>
+                            <option value="MUÑOZ TONGUINO CHRISTIAN DAVID">MUÑOZ TONGUINO CHRISTIAN DAVID</option>
+                            <option value="PINANGO SIMBAÑA JOHN ALEXANDER">PINANGO SIMBAÑA JOHN ALEXANDER</option>
+                            <option value="PURUNCAJAS MUELA ANDREA CAROLINA">PURUNCAJAS MUELA ANDREA CAROLINA</option>
+                            <option value="ROCHA MORGA JUAN FERNANDO">ROCHA MORGA JUAN FERNANDO</option>
+                            <option value="TIXI CHOTO ALEX FERNANDO">TIXI CHOTO ALEX FERNANDO</option>
+                            <option value="CARVAJAL DE LA CRUZ GABRIEL">CARVAJAL DE LA CRUZ GABRIEL</option>
+                            <option value="CHICAIZA GALLARDO JONATHAN ALEXANDER">CHICAIZA GALLARDO JONATHAN ALEXANDER</option>
+                            <option value="CHIMARRO MALDONADO GLADYS JANETH">CHIMARRO MALDONADO GLADYS JANETH</option>
+                            <option value="COLLAGUAZO YAJAMIN RICHARD IVAN">COLLAGUAZO YAJAMIN RICHARD IVAN</option>
+                            <option value="COLLAGUAZO YAJAMIN STALIN LEVIN">COLLAGUAZO YAJAMIN STALIN LEVIN</option>
+                            <option value="DELGADO VILLALBA JASSUO STEVEN">DELGADO VILLALBA JASSUO STEVEN</option>
+                            <option value="ENCALADA MONTEROS ALBA MARLENE">ENCALADA MONTEROS ALBA MARLENE</option>
+                            <option value="ENCALADA REYES BYRON VICENTE">ENCALADA REYES BYRON VICENTE</option>
+                            <option value="FLORES CORONEL DIEGO JAVIER">FLORES CORONEL DIEGO JAVIER</option>
+                            <option value="HIDALGO BETANCOURT FERNANDO VLADIMIR">HIDALGO BETANCOURT FERNANDO VLADIMIR</option>
+                            <option value="JERES GANGULA DIEGO ALEXIS">JERES GANGULA DIEGO ALEXIS</option>
+                            <option value="LOPEZ PINTO ANDREA BELEN">LOPEZ PINTO ANDREA BELEN</option>
+                            <option value="MADRIL CELA DIEGO ESTEBAN">MADRIL CELA DIEGO ESTEBAN</option>
+                            <option value="MEDINA OVIEDO ISMAEL FRANCISCO">MEDINA OVIEDO ISMAEL FRANCISCO</option>
+                            <option value="MERA BONE LUIS LEONEL">MERA BONE LUIS LEONEL</option>
+                            <option value="NASIMBA CABEZAS SEGUNDO EDGAR">NASIMBA CABEZAS SEGUNDO EDGAR</option>
+                            <option value="PARRALES MOLINA CAMILA ANTONELLA">PARRALES MOLINA CAMILA ANTONELLA</option>
+                            <option value="PASTOR CHICA FAUSTO LEONARDO">PASTOR CHICA FAUSTO LEONARDO</option>
+                            <option value="PINCHAO CRUZ DARWIN GIOVANNY">PINCHAO CRUZ DARWIN GIOVANNY</option>
+                            <option value="QUEVEDO REYES LELIO EMILIANO">QUEVEDO REYES LELIO EMILIANO</option>
+                            <option value="REYNA CARRANZA JOSE EUGENIO">REYNA CARRANZA JOSE EUGENIO</option>
+                            <option value="SARABINO MONTENEGRO MERCEDES ELIZABETH">SARABINO MONTENEGRO MERCEDES ELIZABETH</option>
+                            <option value="SEMANATE CAIZA ANDRES FRANCISCO">SEMANATE CAIZA ANDRES FRANCISCO</option>
+                            <option value="SIMBAÑA LLUSCA GIOVANNY FERNANDO">SIMBAÑA LLUSCA GIOVANNY FERNANDO</option>
+                            <option value="SOLORZANO BARAHONA MATIUZ DAVID">SOLORZANO BARAHONA MATIUZ DAVID</option>
+                            <option value="TELLO CHASI CARMEN GUADALUPE">TELLO CHASI CARMEN GUADALUPE</option>
+                            <option value="TORRES MOSQUERA ARIANA NOEMÍ">TORRES MOSQUERA ARIANA NOEMÍ</option>
+                            <option value="ZOLIS VALDEZ MARIA FERNANDA">ZOLIS VALDEZ MARIA FERNANDA</option>
+                            <option value="TOCAGON CAIZA MARIA ROSARIO">TOCAGON CAIZA MARIA ROSARIO</option>
+                            <option value="ENCALADA MONTEROS FANNY SHIRLEY">ENCALADA MONTEROS FANNY SHIRLEY</option>
+                            <option value="ENCALADA MONTEROS LENNIN CARLOS">ENCALADA MONTEROS LENNIN CARLOS</option>
+                            <option value="CARDENAS LOJA SANDRA PATRICIA">CARDENAS LOJA SANDRA PATRICIA</option>
+                            <option value="PARRAGA MUÑOZ JUAN EDUARDO">PARRAGA MUÑOZ JUAN EDUARDO</option>
+                            <option value="PARRALES BRIONES JORGE ANTONIO">PARRALES BRIONES JORGE ANTONIO</option>
+                            
+                        </select>
+                    </div>
+
+                    <div class="form-group" data-aos="fade-left" data-aos-duration="800">
+                        <label for="autoriz">
+                            <i class='bx bx-user bx-flashing' style='color:#0275d8; font-size: 1.2em;'></i> 
+                            AUTORIZACIÓN :
+                        </label>
+                        <select class="form-control" id="autoriz" name="AUTORIZACION" required>
+                            <option value="">Seleccionar</option>
+                            <option value="ALBA ENCALADA">ALBA ENCALADA</option>
+                            <option value="SHIRLEY ENCALADA">SHIRLEY ENCALADA</option>
+                            <option value="BYRON ENCALADA">BYRON ENCALADA</option>
+                            <option value="DIEGO FLORES">DIEGO FLORES</option>
+                           
+                        </select>
+                    </div>
+                    
+                    <div class="form-group"  style='color:#0275d8; font-size: 1.2em;' data-aos="zoom-in">
+                        <label for="novedadDetalle">
+                            <i class='bx bx-detail bx-spin' style='color:#0275d8; font-size: 1.2em;'></i> 
+                            NOVEDAD:
+                        </label>
+                        <textarea class="form-control" name="NOVEDAD" id="novedadDetalle" placeholder="Describe en pocas palabras lo que sucedio"></textarea>
+                    </div>
+
+            
+
+                    <div class="form-group mt-2">
+                        <label for="media" class="form-check-label">
+                            <i class='bx bx-archive bx-tada' style='color:#0275d8; font-size: 1.2em;'></i> 
+                            SUBIR ARCHIVO  :</label>
+                        <input class="form-control-file" type="file" name="media" id="media" />
+                    </div>
+
+                    <div class="form-group form-check mt-2" data-aos="fade-up">
+                        <input class="form-check-input" type="checkbox" id="DATO" required/>
+                        <label class="form-check-label" for="DATO">
+                            Está de acuerdo con los datos proporcionados
+                        </label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-block" data-aos="zoom-in">
+                        <i class='bx bx-send bx-tada' style='margin-right: 5px;'></i> ENVIAR
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Mostrar pantalla de bienvenida y luego ocultarla después de 3 segundos
+    setTimeout(function() {
+        const welcomeScreen = document.getElementById('welcome-screen');
+        const mainContent = document.querySelector('.main-content');
+        
+        if (welcomeScreen && mainContent) {
+            // Desvanecer la pantalla de bienvenida
+            welcomeScreen.classList.add('animate__fadeOut');
+            
+            // Mostrar el contenido principal
+            mainContent.style.display = 'block';
+            mainContent.classList.add('animate__animated', 'animate__fadeIn');
+            
+            // Eliminar la pantalla de bienvenida después de la transición
+            setTimeout(function() {
+                welcomeScreen.style.display = 'none';
+            }, 1000);
+            
+            // Inicializar AOS después de mostrar el contenido principal
+            if (typeof AOS !== 'undefined') {
+                AOS.init();
+            }
+        }
+    }, 3000); // 3 segundos de pantalla de bienvenida
+    
+    console.log("DOM completamente cargado");
+    
+    // Configurar fecha y hora
+    const dateInput = document.getElementById('date');
+    const timeInput = document.getElementById('time');
+    
+    if (dateInput && timeInput) {
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        dateInput.value = `${yyyy}-${mm}-${dd}`;
+        
+        const hours = String(today.getHours()).padStart(2, '0');
+        const minutes = String(today.getMinutes()).padStart(2, '0');
+        timeInput.value = `${hours}:${minutes}`;
+        
+        console.log("Fecha y hora establecidas:", dateInput.value, timeInput.value);
+    }
+    
+    
+    
+    // Configurar el envío del formulario
+    const form = document.getElementById('submit-to-google-sheet');
+    if (form) {
+        console.log("Formulario encontrado");
+        
+        form.onsubmit = function(e) {
+            e.preventDefault();
+            console.log("Formulario enviado");
+            
+            // Validar el checkbox
+            const DATO = document.getElementById("DATO");
+            if (!DATO || !DATO.checked) {
+                swal("ERROR", "Debe aceptar los términos para continuar.", "error");
+                return false;
+            }
+            
+            // URL del script de Google Sheets
+            const scriptURL = "https://script.google.com/macros/s/AKfycbxxPwMDLEdDg4YQSeKcFX9JeiBed-u1sEZsBfKDomaxnMu7BYIyVdX1Tp0J44E3x22i/exec";
+            
+            // Crear FormData y agregar archivos si existen
+            const formData = new FormData(form);    
+        
+
+
+            // Enviar el formulario
+            fetch(scriptURL, { 
+                method: "POST", 
+                body: formData 
+            })
+            .then(response => {
+                console.log("Respuesta recibida:", response);
+                if (response.ok) {
+                    swal("HECHO", "Enviado exitosamente.", "success");
+                    
+                    // Guardar valores de fecha y hora
+                    const fechaValue = dateInput.value;
+                    const horaValue = timeInput.value;
+                    
+                    // Resetear formulario
+                    form.reset();
+                    
+                    // Restaurar fecha y hora
+                    dateInput.value = fechaValue;
+                    timeInput.value = horaValue;
+                    
+                    // Ocultar detalles de novedad
+                    const novedadDetalles = document.getElementById('novedadDetalles');
+                    if (novedadDetalles) {
+                        novedadDetalles.style.display = 'none';
+                    }
+                    
+                    // Refrescar animaciones AOS
+                    if (typeof AOS !== 'undefined') {
+                        setTimeout(function() {
+                            AOS.refresh();
+                        }, 500);
+                    }
+                } else {
+                    throw new Error("Error en la solicitud: " + response.status);
+                }
+            })
+            .catch(error => {
+                swal("ERROR", "Algo salió mal. Por favor, inténtelo de nuevo.", "error");
+                console.error("Error:", error);
+            });
+            
+            return false;
+            
+        };
+    } else {
+        console.error("Formulario no encontrado");
+    }
+});
+form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+                const formData = new FormData(form);
+                // Handle the file upload
+                const fileInput = document.getElementById("media");
+                if (fileInput.files.length > 0) {
+                    const file = fileInput.files[0];
+                    const reader = new FileReader();
+
+                    // Size validation here, only less than 2MB allowed
+                    if (file.size > 1024 * 1024 * 2) {
+                        swal("Error", "File size should be less than 2MB.", "error");
+                        return;
+                    }
+
+                    reader.onload = async function () {
+                        formData.append("media", reader.result.split(",")[1]); // Append base64 data
+                        await submitForm(formData);
+                    };
+
+                    reader.readAsDataURL(file);
+                } else {
+                    // No file uploaded
+                    await submitForm(formData);
+                }
+                });   
+    </script>
+ 
+</body>
+</html>
